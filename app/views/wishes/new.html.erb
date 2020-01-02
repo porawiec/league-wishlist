@@ -1,0 +1,10 @@
+<h1>Create your wishlist</h1>
+
+<%= form_with model: @wish do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %></br>
+    <%= f.label :password %>
+    <%= f.password_field :password %></br>
+
+    <%= f.submit "Create"%>
+<% end %>

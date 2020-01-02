@@ -1,0 +1,5 @@
+<h1> Champ Index </h1>
+
+<% @champs.each do |champ| %>
+    <p><%= link_to champ.name, champ_path(champ) %></p>
+<% end %>

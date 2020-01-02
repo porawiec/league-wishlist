@@ -1,0 +1,5 @@
+<h1> Player Index </h1>
+
+<% @players.each do |player| %>
+    <p><%= link_to player.username, player_path(player) %></p>
+<% end %>

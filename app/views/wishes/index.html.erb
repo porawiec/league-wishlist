@@ -1,0 +1,9 @@
+<h1> Wish Index </h1>
+
+<% @wishes.each do |wish| %>
+    <p><%= link_to @wish.desired_champ.desired_skin.name, skin_path(skin) %></p>
+<% end %>
+
+<% @wishes.each do |wish| %>
+    <p><%= link_to @wish.desired_champ.name, champ_path(champ) %></p>
+<% end %>
