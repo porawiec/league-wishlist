@@ -1,5 +1,5 @@
 class Champ < ApplicationRecord
-    has_many :wish
-    has_many :roster
+    has_many :wishes
+    has_many :rosters
     has_many :skins
 end

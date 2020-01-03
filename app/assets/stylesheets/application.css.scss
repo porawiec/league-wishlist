@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ * background-image: url(/assets/background.jpg);
  */
 
- background-image: url(/assets/background.jpg);
+@import "bootstrap-sprockets";
+@import "bootstrap";
+

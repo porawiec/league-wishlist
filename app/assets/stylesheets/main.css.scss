@@ -1,0 +1,26 @@
+html body{background: url('background.jpg')}
+html body{color: hsl(308, 100%, 50%)}
+/* A link that has not been visited */
+a:link {
+    color: rgb(174, 0, 255);
+}
+/* A link that has been visited */
+a:visited {
+    color: purple;
+}
+/* A link that is hovered on */
+a:hover {
+    color: red;
+}
+/* A link that is selected */
+a:active {
+    color: green;
+}
+
+ul.thicker {
+    font-weight: 900;
+ }
+
+ ul.arial-font {
+    font: 14px arial, sans-serif;
+} 
