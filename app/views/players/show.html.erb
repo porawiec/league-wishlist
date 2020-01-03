@@ -29,7 +29,7 @@
 
     <h2> Desired Champions </h2>
     <% @player.wishes.order(rank: :desc).each do |wishd_champ| %>
-        <p>Rank: <%= wishd_champ.rank %> <%=link_to "#{Champ.find_by(id: wishd_champ.champ_id).name}", champ_path(wishd_champ.champ_id)%> - <%= link_to "Edit", edit_wish_path(wishd_champ)%> </p>
+        <p>Rank: <%= wishd_champ.rank %> <%=link_to "#{Champ.find_by(id: wishd_champ.champ_id).name}", champ_path(wishd_champ.champ_id)%>
     <% end %>
 
     <h2> Desired Skins </h2>
