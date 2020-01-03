@@ -1,5 +1,13 @@
 <h1> Champion: <%= @champ.name %> </h1>
 <h2> Current Price : <%= @champ.price %> </h2>
+<h3> Current skins:</h3>
 
-# <%= link_to "Champions", champs_path %>
+<ul>
+    <% @champ.skins.order(:name).each do |skin| %>
+        <li><%= link_to skin.name, skin_path(skin) %></li>
+    <% end %>
+</ul>
+
+<%= link_to "Champions", champs_path %></br>
+<%= link_to "Skins", skins_path %></br></br>
 <%= link_to "Log out", logout_path, method: :delete %>

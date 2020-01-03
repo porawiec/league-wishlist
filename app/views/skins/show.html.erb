@@ -1,7 +1,7 @@
 <h1> Skin: <%= @skin.name %> </h1>
-<h2> Champion: <%= @skin.champ.name %> </h1>
 <h2> Current Price: <%= @skin.cost %> </h2>
+<h2> Champion: <%= link_to "#{@skin.champ.name}", champ_path(@skin.champ) %> </h2>
 
-# <%= link_to "Champions", champs_path %>
-<%= link_to "Skins", skins_path
+<%= link_to "Champions", champs_path %> </br>
+<%= link_to "Skins", skins_path %> </br></br>
 <%= link_to "Log out", logout_path, method: :delete %>

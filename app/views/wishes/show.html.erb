@@ -1,9 +1,4 @@
-<h1> Currently logged in as: <%= current_player.username %> </h1>
+<h1> Wish Show Page </h1>
 
-<% if @current_player.id == @player.id %>
-    <h1> viewing info for: <%= @player.username %> </h1>
-    <%=  link_to "Edit Info", edit_player_path(@player) %>
-<% else 
-    <h3> This content is restricted from other users. You may access your content at <%= link_to "your page", current_player %><h3>
+<h2> I've wished for <%= link_to "#{@wish.champ.name}", champ_path(@wish.champ) %>! </h2>
 
-<%= link_to "Log out", logout_path, method: :delete %>

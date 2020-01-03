@@ -1,5 +1,6 @@
 <h1> Skins Index </h1>
-
-<% @skins.each do |skin| %>
-    <p><%= link_to skin.name, skin_path(skin) %></p>
+<ul>
+<% @skins.order(:name).each do |skin| %>
+    <li><%= link_to skin.name, skin_path(skin) %> - <%= skin.champ.name %></li>
 <% end %>
+</ul>

@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
             session[:player_id] = player.id
             redirect_to player
         else
-        flash[:message] = "Invalid Credentials" 
-        redirect_to new_session_path
+            flash[:message] = "Invalid Credentials" 
+            redirect_to new_session_path
         end
     end
 

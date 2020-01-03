@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
 
-    before_action :authorize!, except: [:new]
+    before_action :authorize!, except: [:new, :create]
     before_action :authorize_viewing_self!, only: [:show, :edit, :update]
 
     def new
@@ -13,6 +13,8 @@ class PlayersController < ApplicationController
             player.save
             redirect_to players_path
             session[:player_id] = player.id
+        else
+            redirect_to new_player_path
         end
     end
 

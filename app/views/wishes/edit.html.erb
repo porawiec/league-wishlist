@@ -1,1 +1,9 @@
 <h1>Wish Editing Page</h1>
+
+<%= form_with model: @wish do |f| %>
+    <%= f.label :rank %>
+    <%= f.text_field :rank %></br>
+    <%= f.collection_select :champ_id, Champ.all, :id, :name %><br>
+
+    <%= f.submit "Edit"%>
+<% end %>
