@@ -1,16 +1,39 @@
-<h1> Currently logged in as: <%= current_player.username %> </h1>
+<%= link_to "Champions", champs_path %>
+<%= link_to "Skins", skins_path %>
+<%= link_to "Players", players_path %>
+<%= link_to "Wishes", wishes_path %>
+</br></br>
+<%= link_to "Log out", logout_path, method: :delete %>
 
-<% if current_player.id == @player.id %>
-    <h1> viewing info for: <%= @player.username %> </h1>
+<% if logged_in? %>
+<%# if current_player.id == @player.id %>
+    <h1> Currently logged in as: <%= current_player.username %> </h1>
+    <%= link_to "Create Wish", new_wish_path %> </br>
+    <h1> Viewing wishes for: <%= @player.username %> </h1>
     
-    <% @player.desired_champs.each do |champ| %>
-        <p><%=link_to "#{champ.name}", champ_path(champ)%> - <%= link_to "Edit", edit_wish_path(champ) %></p>
+    <h2> Desired Champions </h2>
+    <% @player.wishes.order(rank: :desc).each do |wishd_champ| %>
+        <p>Rank: <%= wishd_champ.rank %> <%=link_to "#{Champ.find_by(id: wishd_champ.champ_id).name}", champ_path(wishd_champ.champ_id)%> - <%= link_to "Edit", edit_wish_path(wishd_champ)%> </p>
+    <% end %>
+
+
+    <h2> Desired Skins </h2>
+    <% @player.desired_skins.each do |skin| #broken %>
+        <p><%=link_to "#{skin.name}", skin_path(skin)%> for <%= link_to "#{skin.champ.name}", champ_path(skin.champ)%> - <%= link_to "Edit", edit_wish_path(skin) %></p>
     <% end %>
     
-    <%= link_to "Create Wish", new_wish_path(@player) %> </br>
 
 <% else %>
-    <h3> This content is restricted from other users. You may access your content at <%= link_to "your page", current_player %><h3>
-<% end %>
+    <h3> Editing another user's wishlist is restricted. You may access your wishes after you <%= link_to "login", login_path %>.<h3>
+    <h1> Viewing wishes for: <%= @player.username %> </h1>
 
-<%= link_to "Log out", logout_path, method: :delete %>
+    <h2> Desired Champions </h2>
+    <% @player.wishes.order(rank: :desc).each do |wishd_champ| %>
+        <p>Rank: <%= wishd_champ.rank %> <%=link_to "#{Champ.find_by(id: wishd_champ.champ_id).name}", champ_path(wishd_champ.champ_id)%> - <%= link_to "Edit", edit_wish_path(wishd_champ)%> </p>
+    <% end %>
+
+    <h2> Desired Skins </h2>
+    <% @player.desired_skins.each do |skin| %>
+        <p><%=link_to "#{skin.name}", skin_path(skin)%> for <%= link_to "#{skin.champ.name}", champ_path(skin.champ)%></p>
+    <% end %>
+<% end %>

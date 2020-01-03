@@ -9,13 +9,13 @@ class WishesController < ApplicationController
 
     def create
         @wish = Wish.new(wish_params)
-        @wish["player_id"] = session[:player_id]
+        @wish[:player_id] = session[:player_id]
 
         if @wish.valid?
             @wish.save
             redirect_to @wish
         else
-           p flash[:errors] = @wish.errors.full_messages
+            flash[:errors] = @wish.errors.full_messages
             redirect_to new_wish_path
         end
     end
@@ -36,6 +36,8 @@ class WishesController < ApplicationController
 
     def update
         @wish = Wish.find_by(id: params[:id])
+
+        @wish[:player_id] = session[:player_id]
         @wish.update(wish_params)
 
         if @wish.valid?
@@ -43,6 +45,12 @@ class WishesController < ApplicationController
         else
             flash[:errors] = @wish.errors.full_messages
             redirect_to edit_wish_path
+        end
+
+        def destroy
+            @wish = Wish.find_by(id: params[:id])
+            @wish.destroy
+            redirect_to new_wish_path, :notice => "Your wish was deleted"
         end
     end
 

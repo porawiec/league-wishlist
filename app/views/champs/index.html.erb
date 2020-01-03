@@ -1,3 +1,10 @@
+<%= link_to "My Wishes", current_player %>
+<%= link_to "Skins", skins_path %>
+<%= link_to "Players", players_path %>
+<%= link_to "Wishes", wishes_path %>
+</br></br>
+<%= link_to "Log out", logout_path, method: :delete %>
+
 <h1> Champ Index </h1>
 <ul>
 <% @champs.order(:name).each do |champ| %>

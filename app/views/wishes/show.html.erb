@@ -1,4 +1,6 @@
+<%= link_to "My Wishes", current_player %>
 <h1> Wish Show Page </h1>
 
 <h2> I've wished for <%= link_to "#{@wish.champ.name}", champ_path(@wish.champ) %>! </h2>
 
+<p> <%= link_to "Delete", wish_path(@wish), :confirm => "Are you sure?", :method => :delete %>

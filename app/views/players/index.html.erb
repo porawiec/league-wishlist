@@ -1,5 +1,12 @@
+<%= link_to "My Wishes", current_player %>
+<%= link_to "Champions", champs_path %>
+<%= link_to "Skins", skins_path %>
+<%= link_to "Wishes", wishes_path %>
+</br></br>
+<%= link_to "Log out", logout_path, method: :delete %>
+
 <h1> Player Index </h1>
 
-<% @players.each do |player| %>
+<% @players.order(:username).each do |player| %>
     <p><%= link_to player.username, player_path(player) %></p>
 <% end %>

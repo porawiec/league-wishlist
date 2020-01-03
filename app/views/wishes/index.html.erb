@@ -1,9 +1,16 @@
+<%= link_to "My Wishes", current_player %>
+<%= link_to "Champions", champs_path %>
+<%= link_to "Skins", skins_path %> 
+<%= link_to "Players", players_path %>
+<%= link_to "Wishes", wishes_path %>
+</br></br>
+<%= link_to "Log out", logout_path, method: :delete %>
+
 <h1> Wish Index </h1>
 
+<h3> Champion Wishes </h3>
+<ul>
 <% @wishes.each do |wish| %>
-    <p><%= link_to wish.champ.name, skin_path(skin) %></p>
+    <li><%= link_to "#{wish.champ.name}", champ_path(wish.champ) %> for <%= link_to "#{wish.player.username}", player_path(wish.player) %> </li>
 <% end %>
-
-<% @wishes.each do |wish| %>
-    <p><%= link_to @wish.name, champ_path(champ) %></p>
-<% end %>
+</ul>

@@ -1,7 +1,7 @@
 class PlayersController < ApplicationController
 
-    before_action :authorize!, except: [:new, :create]
-    before_action :authorize_viewing_self!, only: [:show, :edit, :update]
+    before_action :authorize!, only: [:new, :create]
+    # before_action :authorize_viewing_self!, only: [:edit, :update]
 
     def new
         @player = Player.new
@@ -24,9 +24,6 @@ class PlayersController < ApplicationController
 
     def show
         @player = Player.find_by(id: params[:id])
-        render :show
-    end
-
-    def edit
+        # render :show
     end
 end

@@ -1,3 +1,11 @@
+<%= link_to "My Wishes", current_player %>
+<%= link_to "Champions", champs_path %>
+<%= link_to "Skins", skins_path %> 
+<%= link_to "Players", players_path %>
+<%= link_to "Wishes", wishes_path %>
+</br></br>
+<%= link_to "Log out", logout_path, method: :delete %>
+
 <h1> Champion: <%= @champ.name %> </h1>
 <h2> Current Price : <%= @champ.price %> </h2>
 <h3> Current skins:</h3>
@@ -7,7 +15,3 @@
         <li><%= link_to skin.name, skin_path(skin) %></li>
     <% end %>
 </ul>
-
-<%= link_to "Champions", champs_path %></br>
-<%= link_to "Skins", skins_path %></br></br>
-<%= link_to "Log out", logout_path, method: :delete %>
